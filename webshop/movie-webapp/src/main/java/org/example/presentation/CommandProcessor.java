@@ -45,7 +45,7 @@ public class CommandProcessor {
 
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
-
+        System.out.println("We don't needed CommandProcessor class");
         System.out.println("Welcome enter a command:");
 
         while(running) {
