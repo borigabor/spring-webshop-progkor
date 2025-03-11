@@ -1,11 +1,23 @@
 package org.example;
 
-import org.example.config.AppConfig;
-import org.example.presentation.CommandProcessor;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/*A Main osztályra rádobjuk a SpringBootApplication annotációt
+* ez három fajta annotációt vált ki.
+* az automata konfiguráció bekapcsolásnak
+* a componentScannek illetve a sima configurationnak
+* A SPringBoot automata konfigurációkkal rendelkezik.
+* SpringBoot minden ami a packages hierarchiába a Main osztály alatt van ott át szkenneli az
+* egészet*/
+@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
+
+        // A program fő belépés pontja és átadjuk ugyaanzokat az argumentumokat amit kap a main
+
+        /*Az alkalmazásunk egy tomcats serveren fut a 8080 porton*/
+        SpringApplication.run(Main.class, args);
 
         /*probléma mi magunk készítjuk el a main osztályon belül az egyik függőségünk példányát
         * Ha bármi változzna a commandProcessor elkészítési módszerében akkor azt itt le kel követni
@@ -35,9 +47,14 @@ public class Main {
         * ez az IOC kezeli a konfigurációkat ezekhez a példányokhoz a létrehozást és az életciklus fázisokat
         *Létrehozzuk az AppConfig osztály a confog csomagban
         * */
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
         /*A kontextusbol le tudjuk kérni magát a bean-t*/
-        CommandProcessor commandProcessor = context.getBean(CommandProcessor.class);
-        commandProcessor.process();
+
+        /*Ezt már nem fogjuk használni mivel webes lesz az alaklmazásunk
+        *  AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        *  CommandProcessor commandProcessor = context.getBean(CommandProcessor.class);
+           commandProcessor.process();
+        * */
+
     }
 }

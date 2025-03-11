@@ -8,5 +8,15 @@ import java.util.List;
  Egy metódust deklarál, amely egy List<Movie> típusú listát ad vissza. */
 
 public interface MovieRepository {
-    List<Movie> getAllMovie();
+
+    List<Movie> findAllMovies();
+
+    Movie saveMovie(Movie movie);
+
+    Movie findMovie(Long id);
+
+    Movie updateMovie(Long id, Movie movieDetails);
+
+    void deleteMovie(Long id);
+
 }

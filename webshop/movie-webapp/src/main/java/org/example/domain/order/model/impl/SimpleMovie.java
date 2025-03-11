@@ -4,5 +4,5 @@ import lombok.Builder;
 import org.example.domain.order.model.Movie;
 
 @Builder
-public record SimpleMovie(String title, double netPrice) implements Movie {
+public record SimpleMovie(Long id, String title, double netPrice) implements Movie {
 }

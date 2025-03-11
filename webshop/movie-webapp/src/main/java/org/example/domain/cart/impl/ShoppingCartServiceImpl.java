@@ -109,7 +109,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public void addMovie(String movieTitle) throws NoSuchMovieException {
-        Movie movieToAdd = movieRepository.getAllMovie()
+        Movie movieToAdd = movieRepository.findAllMovies()
                 .stream()
                 .filter(movie -> movie.title().equals(movieTitle))
                 .findFirst()

@@ -4,6 +4,8 @@ package org.example.domain.order.model;
 
 public interface Movie {
 
+    Long id();
+
     //Egy metódus, amely visszaadja a film címét (String típusban).
     String title();
 
